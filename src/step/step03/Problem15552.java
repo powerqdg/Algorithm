@@ -20,6 +20,7 @@ public class Problem15552 {
 			b = Integer.parseInt(st.nextToken());
 			bw.write((a + b) + "\n");
 		}
+		br.close();
 		bw.close();
 	}
 }
