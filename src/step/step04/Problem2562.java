@@ -28,7 +28,7 @@ public class Problem2562 {
 				inArr.add(Integer.parseInt(st.nextToken()));
 			}
 			
-			int max = Integer.MIN_VALUE;
+			int max = 0;
 			for (Integer i : inArr) {
 				max = Math.max(max, i);
 			}
