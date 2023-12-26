@@ -37,8 +37,8 @@ public class Problem10818 {
 						intArr[i] = Integer.parseInt(st.nextToken());
 					}
 					
-					int min = 1000000;
-					int max = 1;
+					int min = Integer.MAX_VALUE;
+					int max = Integer.MIN_VALUE;
 					
 					for (int i : intArr) {
 						min = Math.min(min, i);
