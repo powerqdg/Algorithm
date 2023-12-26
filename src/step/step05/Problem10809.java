@@ -15,10 +15,10 @@ public class Problem10809 {
 			br = new BufferedReader(new InputStreamReader(System.in));
 			bw = new BufferedWriter(new OutputStreamWriter(System.out));
 			
-			String test = "baekjoon";
-			int flag = 0;
+			String word = br.readLine();
+			int flag = -1;
 			for (int i = 97; i <= 122; i++) {
-				flag = test.indexOf(String.valueOf((char) i)); 
+				flag = word.indexOf(String.valueOf((char) i)); 
 				bw.write(Integer.toString(flag) + " ");
 			}
 			bw.flush();
