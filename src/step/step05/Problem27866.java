@@ -17,13 +17,10 @@ public class Problem27866 {
 			bw = new BufferedWriter(new OutputStreamWriter(System.out));
 			
 			StringTokenizer st;
-			String line = br.readLine();
-			
-			st = new StringTokenizer(line);
+			st = new StringTokenizer(br.readLine());
 			String word = st.nextToken();
 			
-			line = br.readLine();
-			st = new StringTokenizer(line);
+			st = new StringTokenizer(br.readLine());
 			int index = Integer.parseInt(st.nextToken()) - 1;
 			bw.write(word.charAt(index));
 			bw.flush();
