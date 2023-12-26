@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
-public class Problem10807 {
+public class Problem10871 {
 	public static void main(String[] args) {
 		BufferedReader br = null;
 		BufferedWriter bw = null;
@@ -20,29 +20,32 @@ public class Problem10807 {
 			String line = null;
 			int lineNum = 0;
 			int arrLen = 0;
+			int findNum = 0;
 			int[] intArr = null;
 			while ((line = br.readLine()) != null) {
 				lineNum++;
 				st = new StringTokenizer(line);
 				
+				if (!st.hasMoreTokens()) {
+					break;
+				}
+				
 				if (lineNum == 1) {
 					arrLen = Integer.parseInt(st.nextToken());
+					findNum = Integer.parseInt(st.nextToken());
 				} else if (lineNum == 2) {
 					intArr = new int[arrLen];
 					for (int i = 0; i < intArr.length; i++) {
 						intArr[i] = Integer.parseInt(st.nextToken());
 					}
-				} else if (lineNum == 3) {
-					int findNum = 0;
-					findNum = Integer.parseInt(st.nextToken());
 					
-					int findCnt = 0;
 					for (int i : intArr) {
-						if (i == findNum) findCnt++;
+						if (i < findNum) {
+							bw.write(Integer.toString(i) + " ");
+						}
 					}
-					bw.write(Integer.toString(findCnt));
 					bw.flush();
-				}
+				} 
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
