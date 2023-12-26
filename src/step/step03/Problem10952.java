@@ -21,9 +21,9 @@ public class Problem10952 {
 				break;
 			}
 			bw.write(a + b + "\n");
+			bw.flush();
 		}
 		
-		bw.flush();
 		br.close();
 		bw.close();
 	}
