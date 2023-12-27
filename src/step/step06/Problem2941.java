@@ -25,13 +25,15 @@ public class Problem2941 {
 			int totCnt = 0;
 			boolean isNeedCheck = false;
 			String temp = "";
-			for (int i = 0; i < line.length(); i++) {
+			int lineLen = line.length();
+			int LAST_IDX = lineLen - 1;
+			for (int i = 0; i < lineLen; i++) {
 				String a = String.valueOf(line.charAt(i));
 				temp += a;
 				
 				if ("c".equals(a) || "d".equals(a) || "l".equals(a) || "n".equals(a) || "s".equals(a) || "z".equals(a)) {
 					isNeedCheck = true;
-					if (i != line.length() - 1) {
+					if (i != LAST_IDX) {
 						continue;
 					}
 				}
@@ -49,7 +51,7 @@ public class Problem2941 {
 					}
 				}
 				
-				if (i == line.length() - 1) {
+				if (i == LAST_IDX) {
 					totCnt += temp.length();
 				}
 			}
