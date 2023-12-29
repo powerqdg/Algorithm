@@ -80,7 +80,7 @@ public class Problem25206 {
 				
 				// 알고리즘
 				if ("P".equals(grade)) {
-					break;
+					continue;
 				}
 				
 				creditSum += Float.parseFloat(credit);
