@@ -33,7 +33,7 @@ public class Problem1978 {
 					}
 				}
 				
-				if (list.size() == 2 && list.get(list.size() - 1) == n) {
+				if (list.size() == 2) {
 					cnt++;
 				}
 				list.clear();
