@@ -48,7 +48,7 @@ public class Problem2581 {
 			} else {
 				writer.write("-1");
 			}
-			
+			writer.flush();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
