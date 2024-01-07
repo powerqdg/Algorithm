@@ -1,10 +1,10 @@
-package step.step09;
+package step.step10;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Problem11653 {
+public class Problem27323 {
 	private BufferedReader reader;
 
 	private void initializeReader() {
@@ -13,18 +13,18 @@ public class Problem11653 {
 
 	private void solve() {
 		try {
-			int N = Integer.parseInt(reader.readLine());
-			if (N != 1) {
-				for (int i = 2; i <= N; i++) {
-					while (N % i == 0) {
-						System.out.println(i);
-						N /= i;
-					}
-				}
-			}
+			int A = Integer.parseInt(reader.readLine());
+			int B = Integer.parseInt(reader.readLine());
+			int area = A * B;
+			System.out.println(area);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	private void handleIOException(IOException e) {
+		System.err.println("An error occurred while reading input: " + e.getMessage());
+		e.printStackTrace();
 	}
 
 	private void closeReader() {
@@ -33,12 +33,12 @@ public class Problem11653 {
 				reader.close();
 			}
 		} catch (IOException e) {
-			e.printStackTrace();
+			handleIOException(e);
 		}
 	}
 
 	public static void main(String[] args) {
-		Problem11653 solution = new Problem11653();
+		Problem27323 solution = new Problem27323();
 		solution.initializeReader();
 		solution.solve();
 		solution.closeReader();

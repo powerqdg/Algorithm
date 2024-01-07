@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
 public class Problem1978 {
 	private BufferedReader reader;
 
-	private void initializeReaderWriter() {
+	private void initializeReader() {
 		reader = new BufferedReader(new InputStreamReader(System.in));
 	}
 
@@ -55,7 +55,7 @@ public class Problem1978 {
 		}
 	}
 
-	private void closeReaderWriter() {
+	private void closeReader() {
 		try {
 			if (reader != null) {
 				reader.close();
@@ -67,8 +67,8 @@ public class Problem1978 {
 
 	public static void main(String[] args) {
 		Problem1978 solution = new Problem1978();
-		solution.initializeReaderWriter();
+		solution.initializeReader();
 		solution.solve();
-		solution.closeReaderWriter();
+		solution.closeReader();
 	}
 }
