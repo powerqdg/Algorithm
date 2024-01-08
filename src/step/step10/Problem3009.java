@@ -66,7 +66,7 @@ public class Problem3009 {
 			if (reader != null) {
 				reader.close();
 			}
-			if (reader != null) {
+			if (writer != null) {
 				writer.close();
 			}
 		} catch (IOException e) {

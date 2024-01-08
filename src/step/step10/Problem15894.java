@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
-public class Problem1085 {
+public class Problem15894 {
 	private BufferedReader reader;
 	private BufferedWriter writer;
 
@@ -18,21 +18,8 @@ public class Problem1085 {
 
 	private void solve() {
 		try {
-			StringTokenizer st = new StringTokenizer(reader.readLine());
-			int x = Integer.parseInt(st.nextToken());
-			int y = Integer.parseInt(st.nextToken());
-			int w = Integer.parseInt(st.nextToken());
-			int h = Integer.parseInt(st.nextToken());
-
-			int diffX = w - x;
-			int diffY = h - y;
-
-			int minDistanceX = Math.min(x, diffX);
-			int minDistanceY = Math.min(y, diffY);
-
-			int result = Math.min(minDistanceX, minDistanceY);
-
-			writer.write(Integer.toString(result));
+			long n = Integer.parseInt(reader.readLine());
+			writer.write(Long.toString(4 * n));
 			writer.flush();
 		} catch (IOException e) {
 			handleIOException(e);
@@ -58,7 +45,7 @@ public class Problem1085 {
 	}
 
 	public static void main(String[] args) {
-		Problem1085 solution = new Problem1085();
+		Problem15894 solution = new Problem15894();
 		solution.initializeReaderWriter();
 		solution.solve();
 		solution.closeReaderWriter();
