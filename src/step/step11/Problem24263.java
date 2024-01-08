@@ -1,12 +1,13 @@
-package step.step10;
+package step.step11;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.StringTokenizer;
 
-public class Problem10101 {
+public class Problem24263 {
 	private BufferedReader reader;
 	private BufferedWriter writer;
 
@@ -17,24 +18,29 @@ public class Problem10101 {
 
 	private void solve() {
 		try {
-			int angle1 = Integer.parseInt(reader.readLine());
-			int angle2 = Integer.parseInt(reader.readLine());
-			int angle3 = Integer.parseInt(reader.readLine());
-			int sum = angle1 + angle2 + angle3;
+			StringTokenizer st = new StringTokenizer(reader.readLine());
 
-			if (sum != 180) {
-				writer.write("Error");
-			} else if (angle1 == angle2 && angle2 == angle3) {
-				writer.write("Equilateral");
-			} else if (angle1 == angle2 || angle2 == angle3 || angle1 == angle3) {
-				writer.write("Isosceles");
-			} else {
-				writer.write("Scalene");
-			}
+			int n = Integer.parseInt(st.nextToken());
+			int[] result = menOfPassion(n);
+			
+			writer.append(Integer.toString(result[0]));
+			writer.newLine();
+			writer.append(Integer.toString(result[1]));
+			
 			writer.flush();
 		} catch (IOException e) {
 			handleIOException(e);
 		}
+	}
+
+	public static int[] menOfPassion(int n) {
+		// 코드1의 수행 횟수는 n회
+		int count = n;
+
+		// 코드1의 수행 횟수를 다항식으로 나타냈을 때 O(n)이므로 최고차항의 차수는 1 
+		int degree = 1;
+
+		return new int[] { count, degree };
 	}
 
 	private void handleIOException(IOException e) {
@@ -56,7 +62,7 @@ public class Problem10101 {
 	}
 
 	public static void main(String[] args) {
-		Problem10101 solution = new Problem10101();
+		Problem24263 solution = new Problem24263();
 		solution.initializeReaderWriter();
 		solution.solve();
 		solution.closeReaderWriter();

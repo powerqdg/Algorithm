@@ -1,12 +1,13 @@
-package step.step10;
+package step.step11;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.StringTokenizer;
 
-public class Problem10101 {
+public class Problem24264 {
 	private BufferedReader reader;
 	private BufferedWriter writer;
 
@@ -17,24 +18,26 @@ public class Problem10101 {
 
 	private void solve() {
 		try {
-			int angle1 = Integer.parseInt(reader.readLine());
-			int angle2 = Integer.parseInt(reader.readLine());
-			int angle3 = Integer.parseInt(reader.readLine());
-			int sum = angle1 + angle2 + angle3;
+			StringTokenizer st = new StringTokenizer(reader.readLine());
 
-			if (sum != 180) {
-				writer.write("Error");
-			} else if (angle1 == angle2 && angle2 == angle3) {
-				writer.write("Equilateral");
-			} else if (angle1 == angle2 || angle2 == angle3 || angle1 == angle3) {
-				writer.write("Isosceles");
-			} else {
-				writer.write("Scalene");
-			}
+			long n = Integer.parseInt(st.nextToken());
+			long[] result = menOfPassion(n);
+			
+			writer.append(Long.toString(result[0]));
+			writer.newLine();
+			writer.append(Long.toString(result[1]));
+			
 			writer.flush();
 		} catch (IOException e) {
 			handleIOException(e);
 		}
+	}
+
+	public static long[] menOfPassion(long n) {
+		long count = n * n;
+		long degree = 2;
+
+		return new long[] { count, degree };
 	}
 
 	private void handleIOException(IOException e) {
@@ -56,7 +59,7 @@ public class Problem10101 {
 	}
 
 	public static void main(String[] args) {
-		Problem10101 solution = new Problem10101();
+		Problem24264 solution = new Problem24264();
 		solution.initializeReaderWriter();
 		solution.solve();
 		solution.closeReaderWriter();
