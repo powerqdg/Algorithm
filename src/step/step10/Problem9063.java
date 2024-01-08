@@ -19,27 +19,21 @@ public class Problem9063 {
 	private void solve() {
 		try {
 			int n = Integer.parseInt(reader.readLine());
-			int[] x = new int[n];
-			int[] y = new int[n];
+			int minX = Integer.MAX_VALUE;
+			int maxX = Integer.MIN_VALUE;
+			int minY = Integer.MAX_VALUE;
+			int maxY = Integer.MIN_VALUE;
 			
 			StringTokenizer st;
 			for (int i = 0; i < n; i++) {
 				st = new StringTokenizer(reader.readLine());
-				x[i] = Integer.parseInt(st.nextToken());
-				y[i] = Integer.parseInt(st.nextToken());
-			}
-			
-			int minX = Integer.MAX_VALUE;
-			int maxX = Integer.MIN_VALUE;
-			for (int i = 0; i < x.length; i++) {
-				minX = Math.min(minX, x[i]);
-				maxX = Math.max(maxX, x[i]);
-			}
-			int minY = Integer.MAX_VALUE;
-			int maxY = Integer.MIN_VALUE;
-			for (int i = 0; i < y.length; i++) {
-				minY = Math.min(minY, y[i]);
-				maxY = Math.max(maxY, y[i]);
+				int x = Integer.parseInt(st.nextToken());
+				int y = Integer.parseInt(st.nextToken());
+				
+				minX = Math.min(minX, x);
+				maxX = Math.max(maxX, x);
+				minY = Math.min(minY, y);
+				maxY = Math.max(maxY, y);
 			}
 			
 			int area = (maxX - minX) * (maxY - minY);
