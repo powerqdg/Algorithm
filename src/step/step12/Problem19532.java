@@ -32,12 +32,17 @@ public class Problem19532 {
 			int e = arr[4];
 			int f = arr[5];
 			
-			int x = (c * e - b * f) / (a * e - b * d);
-			int y = (c * d - a * f) / (b * d - a * e);
+			int denominator = a * e - b * d;
 			
-			writer.append(Integer.toString(x));
-			writer.append(" ");
-			writer.append(Integer.toString(y));
+			if (denominator == 0) {
+				writer.append("분모가 0입니다. 유효한 입력이 아닙니다.");
+			} else {
+				int x = (c * e - b * f) / denominator;
+				int y = (a * f - c * d) / denominator;
+				writer.append(Integer.toString(x));
+				writer.append(" ");
+				writer.append(Integer.toString(y));
+			}
 			writer.flush();
 		} catch (IOException e) {
 			handleIOException(e);
