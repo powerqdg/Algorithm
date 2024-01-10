@@ -27,50 +27,50 @@ public class Problem1018 {
 				String line = reader.readLine();
 				String[] lineArr = line.split("");
 				for (int j = 0; j < lineArr.length; j++) {
-					boolean isWhite = "W".equals(lineArr[j]) ? true : false;
+					boolean isWhite;
+					if ("W".equals(lineArr[j])) {
+						isWhite = true;
+					} else {
+						isWhite = false;
+					}
 					board[i][j] = isWhite;
 				}
 			}
 			
 			int min = Integer.MAX_VALUE;
 			for (int i = 0; i < w; i++) {
+				int iMax = i + 7;
+				if (iMax >= w) {
+					break;
+				}
 				for (int j = 0; j < h; j++) {
-					if (i + 8 == w || j + 8 == h) {
+					int jMax = j + 7;
+					if (jMax >= h) {
 						break;
 					}
 					
-					System.out.printf("limit-i: %d, limit-j: %d", i + 8, j + 8);
-					System.out.println();
-					
-					boolean prev = false;
+					boolean prev = board[i][j];
 					int cnt = 0;
-					
-					for (int m = i + 0; m < i + 8; m++) {
-						for (int n = j + 0; n < j + 8; n++) {
-							if (m == 0 && n == 0) {
-								prev = board[i][j];
-								continue;
-							}
+					for (int m = i; m <= iMax; m++) {
+						for (int n = j; n <= jMax; n++) {
+							if (m == i && n == j) continue;
 							
 							boolean curr = board[m][n];
-							if (n == 0) {
-								if (curr != prev) {
-									cnt++;
-								}
+							
+							if (prev == curr) {
+								cnt++;
+								prev = !curr;
 							} else {
-								if (curr == prev) {
-									cnt++;
-									prev = !curr;
-									continue;
-								}
+								prev = curr;
 							}
-							prev = curr;
 						}
-						// System.out.println(cnt);
+						prev = !prev;
 					}
+					cnt = Math.min(cnt, 64 - cnt);
 					min = Math.min(min, cnt);
 				}
 			}
+			
 			writer.write(Integer.toString(min));
 			writer.flush();
 		} catch (IOException e) {
