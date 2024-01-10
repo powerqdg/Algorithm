@@ -32,15 +32,11 @@ public class Problem2798 {
 			
 			Arrays.sort(numArr);
 			
-			int sum = 0;
 			int max = Integer.MIN_VALUE;
 			for (int i = cardCount - 1; i > -1; i--) {
-				int num1 = numArr[i];
 				for (int j = i - 1; j > -1; j--) {
-					int num2 = numArr[j];
 					for (int k = 0; k < j; k++) {
-						int num3 = numArr[k];
-						sum = num1 + num2 + num3;
+						int sum = numArr[i] + numArr[j] + numArr[k];
 						if (sum <= goalNumber) {
 							max = Math.max(max, sum);
 						}
