@@ -20,16 +20,20 @@ public class Problem2839 {
 		try {
 			StringTokenizer st = new StringTokenizer(reader.readLine());
 			int n = Integer.parseInt(st.nextToken());
-			int cnt = 0;
-			int i = 0;
-			while (cnt < n) {
-				i++;
-				String strI = Integer.toString(i);
-				if (strI.indexOf("666") > -1) {
-					cnt++;
-				}
+			int rslt = 0;
+			if (n == 4 || n == 7) {
+				rslt = -1;
 			}
-			writer.write(Integer.toString(i));
+			else if (n % 5 == 0) {
+				rslt = (n / 5);
+			}
+			else if (n % 5 == 1 || n % 5 == 3) {
+				rslt = (n / 5) + 1;
+			}
+			else if (n % 5 == 2 || n % 5 == 4) {
+				rslt = (n / 5) + 2;
+			}
+			writer.write(Integer.toString(rslt));
 			writer.flush();
 		} catch (IOException e) {
 			handleIOException(e);
