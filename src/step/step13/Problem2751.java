@@ -5,8 +5,7 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Arrays;
 
 public class Problem2751 {
 	private BufferedReader reader;
@@ -19,21 +18,20 @@ public class Problem2751 {
 
 	private void solve() {
 		try {
-			Set<Integer> list = new HashSet<Integer>();
+			int n = Integer.parseInt(reader.readLine());
 			
-			String line = reader.readLine();
-			int lineCnt = Integer.parseInt(line);
-			for (int i = 0; i < lineCnt; i++) {
-				list.add(Integer.parseInt(reader.readLine()));
+			Integer[] list = new Integer[n];
+			for (int i = 0; i < list.length; i++) {
+				list[i] = Integer.parseInt(reader.readLine());
 			}
 			
-			int i = 0;
-			for (int num : list) {
-				writer.append(Integer.toString(num));
-				if (i < list.size() - 1) {
+			Arrays.sort(list);
+			
+			for (int i = 0; i < list.length; i++) {
+				writer.append(Integer.toString(list[i]));
+				if (i < list.length) {
 					writer.newLine();
 				}
-				i++;
 			}
 			writer.flush();
 		} catch (IOException e) {
